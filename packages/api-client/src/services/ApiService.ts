@@ -9,6 +9,7 @@ import type { CartCreateRequest } from '../models/CartCreateRequest';
 import type { CartRequest } from '../models/CartRequest';
 import type { PaginatedCartList } from '../models/PaginatedCartList';
 import type { PaginatedProductAccessoryList } from '../models/PaginatedProductAccessoryList';
+import type { PaginatedPublicInventoryUnitPublicList } from '../models/PaginatedPublicInventoryUnitPublicList';
 import type { PaginatedPublicProductList } from '../models/PaginatedPublicProductList';
 import type { PaginatedPublicPromotionList } from '../models/PaginatedPublicPromotionList';
 import type { PaginatedReviewList } from '../models/PaginatedReviewList';
@@ -455,17 +456,28 @@ export class ApiService {
     /**
      * Get available units for a product with interest count.
      * @param id A unique integer value identifying this product.
-     * @returns PublicProduct
+     * @param ordering Which field to use when ordering the results.
+     * @param page A page number within the paginated result set.
+     * @param search A search term.
+     * @returns PaginatedPublicInventoryUnitPublicList
      * @throws ApiError
      */
-    public static apiV1PublicProductsUnitsRetrieve(
+    public static apiV1PublicProductsUnitsList(
         id: number,
-    ): CancelablePromise<PublicProduct> {
+        ordering?: string,
+        page?: number,
+        search?: string,
+    ): CancelablePromise<PaginatedPublicInventoryUnitPublicList> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/v1/public/products/{id}/units/',
             path: {
                 'id': id,
+            },
+            query: {
+                'ordering': ordering,
+                'page': page,
+                'search': search,
             },
         });
     }

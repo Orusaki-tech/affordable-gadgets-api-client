@@ -370,15 +370,23 @@ export class ApiService {
     /**
      * Get available units for a product with interest count.
      * @param id A unique integer value identifying this product.
-     * @returns PublicProduct
+     * @param ordering Which field to use when ordering the results.
+     * @param page A page number within the paginated result set.
+     * @param search A search term.
+     * @returns PaginatedPublicInventoryUnitPublicList
      * @throws ApiError
      */
-    static apiV1PublicProductsUnitsRetrieve(id) {
+    static apiV1PublicProductsUnitsList(id, ordering, page, search) {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/v1/public/products/{id}/units/',
             path: {
                 'id': id,
+            },
+            query: {
+                'ordering': ordering,
+                'page': page,
+                'search': search,
             },
         });
     }

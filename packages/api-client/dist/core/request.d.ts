@@ -1,5 +1,4 @@
 import type { AxiosResponse, AxiosInstance } from 'axios';
-import FormData from 'form-data';
 import type { ApiRequestOptions } from './ApiRequestOptions';
 import type { ApiResult } from './ApiResult';
 import { CancelablePromise } from './CancelablePromise';
@@ -9,11 +8,11 @@ export declare const isDefined: <T>(value: T | null | undefined) => value is Exc
 export declare const isString: (value: any) => value is string;
 export declare const isStringWithValue: (value: any) => value is string;
 export declare const isBlob: (value: any) => value is Blob;
-export declare const isFormData: (value: any) => value is FormData;
+export declare const isFormData: (value: any) => value is any;
 export declare const isSuccess: (status: number) => boolean;
 export declare const base64: (str: string) => string;
 export declare const getQueryString: (params: Record<string, any>) => string;
-export declare const getFormData: (options: ApiRequestOptions) => FormData | undefined;
+export declare const getFormData: (options: ApiRequestOptions) => any | undefined;
 type Resolver<T> = (options: ApiRequestOptions) => Promise<T>;
 export declare const resolve: <T>(options: ApiRequestOptions, resolver?: T | Resolver<T>) => Promise<T | undefined>;
 export declare const getHeaders: (config: OpenAPIConfig, options: ApiRequestOptions, formData?: FormData) => Promise<Record<string, string>>;

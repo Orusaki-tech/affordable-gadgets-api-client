@@ -2,11 +2,11 @@
 /* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-import type { PublicInventoryUnit } from './PublicInventoryUnit';
-export type PaginatedPublicInventoryUnitList = {
+import type { PublicInventoryUnitAdmin } from './PublicInventoryUnitAdmin';
+export type PaginatedPublicInventoryUnitAdminList = {
     count: number;
     next?: string | null;
     previous?: string | null;
-    results: Array<PublicInventoryUnit>;
+    results: Array<PublicInventoryUnitAdmin>;
 };
 

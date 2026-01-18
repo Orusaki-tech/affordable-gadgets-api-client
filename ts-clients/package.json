@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "generate": "npx --yes openapi-typescript-codegen --input ../../openapi.yaml --output ./generated --client axios && node fix-auth-header.js && echo '✅ ts-clients/generated regenerated and fixed!'",
+    "generate": "node ./node_modules/openapi-typescript-codegen/bin/index.js --input ../openapi.yaml --output ./generated --client axios && node fix-auth-header.js && echo '✅ ts-clients/generated regenerated and fixed!'",
     "generate:frontend": "cd ../inventory-management-frontend && npx --yes openapi-typescript-codegen --input ../../openapi.yaml --output src/api --client axios && cd ../ts-clients && node fix-auth-header.js && echo '✅ Frontend clients regenerated and fixed!'",
     "generate:all": "npm run generate && npm run generate:frontend",
     "fix-auth": "node fix-auth-header.js",

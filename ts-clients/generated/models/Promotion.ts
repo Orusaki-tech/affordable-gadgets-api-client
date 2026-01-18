@@ -19,11 +19,8 @@ export type Promotion = {
     readonly promotion_type_code?: string;
     title: string;
     description?: string;
-    /**
-     * Banner image for promotion (required for Stories Carousel)
-     */
     banner_image?: string | null;
-    readonly banner_image_url?: string;
+    readonly banner_image_url?: string | null;
     /**
      * Auto-generated promotion code (editable)
      */
@@ -64,6 +61,9 @@ export type Promotion = {
     created_by?: number | null;
     readonly created_at?: string;
     readonly updated_at?: string;
-    readonly product_count?: string;
+    /**
+     * Get count of products this promotion applies to.
+     */
+    readonly product_count?: number;
 };
 

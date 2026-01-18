@@ -6,13 +6,9 @@
  * * `PE` - Pending
  * * `AP` - Approved
  * * `RE` - Rejected
- * * `EX` - Expired
- * * `RT` - Returned
  */
-export enum StatusC79Enum {
+export enum ReturnRequestStatusEnum {
     PE = 'PE',
     AP = 'AP',
     RE = 'RE',
-    EX = 'EX',
-    RT = 'RT',
 }

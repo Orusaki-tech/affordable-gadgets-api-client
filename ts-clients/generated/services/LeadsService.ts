@@ -50,7 +50,7 @@ export class LeadsService {
      * @throws ApiError
      */
     public static leadsRetrieve(
-        id: string,
+        id: number,
     ): CancelablePromise<Lead> {
         return __request(OpenAPI, {
             method: 'GET',
@@ -68,7 +68,7 @@ export class LeadsService {
      * @throws ApiError
      */
     public static leadsUpdate(
-        id: string,
+        id: number,
         requestBody: LeadRequest,
     ): CancelablePromise<Lead> {
         return __request(OpenAPI, {
@@ -89,7 +89,7 @@ export class LeadsService {
      * @throws ApiError
      */
     public static leadsPartialUpdate(
-        id: string,
+        id: number,
         requestBody?: PatchedLeadRequest,
     ): CancelablePromise<Lead> {
         return __request(OpenAPI, {
@@ -109,7 +109,7 @@ export class LeadsService {
      * @throws ApiError
      */
     public static leadsDestroy(
-        id: string,
+        id: number,
     ): CancelablePromise<void> {
         return __request(OpenAPI, {
             method: 'DELETE',
@@ -127,7 +127,7 @@ export class LeadsService {
      * @throws ApiError
      */
     public static leadsAssignCreate(
-        id: string,
+        id: number,
         requestBody: LeadRequest,
     ): CancelablePromise<Lead> {
         return __request(OpenAPI, {
@@ -142,13 +142,13 @@ export class LeadsService {
     }
     /**
      * Close lead (no sale) and release inventory units back to stock. Only salespersons can close leads.
-     * @param id
+     * @param id A unique integer value identifying this lead.
      * @param requestBody
      * @returns Lead
      * @throws ApiError
      */
     public static leadsCloseCreate(
-        id: string,
+        id: number,
         requestBody: LeadRequest,
     ): CancelablePromise<Lead> {
         return __request(OpenAPI, {
@@ -163,13 +163,13 @@ export class LeadsService {
     }
     /**
      * Mark lead as contacted. Only salespersons can mark leads as contacted.
-     * @param id
+     * @param id A unique integer value identifying this lead.
      * @param requestBody
      * @returns Lead
      * @throws ApiError
      */
     public static leadsContactCreate(
-        id: string,
+        id: number,
         requestBody: LeadRequest,
     ): CancelablePromise<Lead> {
         return __request(OpenAPI, {
@@ -184,13 +184,13 @@ export class LeadsService {
     }
     /**
      * Convert lead to order. Only salespersons can convert leads.
-     * @param id
+     * @param id A unique integer value identifying this lead.
      * @param requestBody
      * @returns Lead
      * @throws ApiError
      */
     public static leadsConvertCreate(
-        id: string,
+        id: number,
         requestBody: LeadRequest,
     ): CancelablePromise<Lead> {
         return __request(OpenAPI, {

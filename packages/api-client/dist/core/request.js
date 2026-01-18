@@ -25,7 +25,7 @@ export const isBlob = (value) => {
         /^(Blob|File)$/.test(value[Symbol.toStringTag]));
 };
 const getFormDataConstructor = () => {
-    const FormDataCtor = (globalThis === null || globalThis === void 0 ? void 0 : globalThis.FormData);
+    const FormDataCtor = globalThis === null || globalThis === void 0 ? void 0 : globalThis.FormData;
     return typeof FormDataCtor === 'function' ? FormDataCtor : undefined;
 };
 export const isFormData = (value) => {
@@ -133,7 +133,7 @@ export const getHeaders = async (config, options, formData) => {
         resolve(options, config.PASSWORD),
         resolve(options, config.HEADERS),
     ]);
-    const formHeaders = typeof (formData === null || formData === void 0 ? void 0 : formData.getHeaders) === 'function' && (formData === null || formData === void 0 ? void 0 : formData.getHeaders()) || {};
+    const formHeaders = typeof (formData === null || formData === void 0 ? void 0 : formData.getHeaders) === 'function' ? formData.getHeaders() : {};
     const headers = Object.entries({
         Accept: 'application/json',
         ...additionalHeaders,
@@ -146,7 +146,6 @@ export const getHeaders = async (config, options, formData) => {
         [key]: String(value),
     }), {});
     if (isStringWithValue(token)) {
-        // DRF TokenAuthentication expects "Token <key>"
         headers['Authorization'] = `Token ${token}`;
     }
     if (isStringWithValue(username) && isStringWithValue(password)) {

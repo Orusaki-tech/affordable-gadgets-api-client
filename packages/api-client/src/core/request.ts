@@ -161,7 +161,8 @@ export const getHeaders = async (config: OpenAPIConfig, options: ApiRequestOptio
         resolve(options, config.HEADERS),
     ]);
 
-    const formHeaders = typeof formData?.getHeaders === 'function' && formData?.getHeaders() || {}
+    const formHeaders =
+        typeof (formData as any)?.getHeaders === 'function' ? (formData as any).getHeaders() : {}
 
     const headers = Object.entries({
         Accept: 'application/json',
@@ -176,7 +177,6 @@ export const getHeaders = async (config: OpenAPIConfig, options: ApiRequestOptio
     }), {} as Record<string, string>);
 
     if (isStringWithValue(token)) {
-        // DRF TokenAuthentication expects "Token <key>"
         headers['Authorization'] = `Token ${token}`;
     }
 

@@ -15,9 +15,6 @@ export type PatchedPromotionRequest = {
     promotion_type?: number | null;
     title?: string;
     description?: string;
-    /**
-     * Banner image for promotion (required for Stories Carousel)
-     */
     banner_image?: Blob | null;
     /**
      * Auto-generated promotion code (editable)

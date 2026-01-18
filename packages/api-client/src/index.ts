@@ -75,6 +75,7 @@ export type { PaginatedProductList } from './models/PaginatedProductList';
 export type { PaginatedPromotionList } from './models/PaginatedPromotionList';
 export type { PaginatedPromotionTypeList } from './models/PaginatedPromotionTypeList';
 export type { PaginatedPublicInventoryUnitAdminList } from './models/PaginatedPublicInventoryUnitAdminList';
+export type { PaginatedPublicInventoryUnitPublicList } from './models/PaginatedPublicInventoryUnitPublicList';
 export type { PaginatedPublicProductList } from './models/PaginatedPublicProductList';
 export type { PaginatedPublicPromotionList } from './models/PaginatedPublicPromotionList';
 export type { PaginatedReservationRequestList } from './models/PaginatedReservationRequestList';
